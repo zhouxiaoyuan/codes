@@ -1,15 +1,44 @@
-package algorithm;
+package algorithm.practise;
 
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @Description Sort20210324
  * @Created by Administrator on 2021/3/24 14:43
  */
-public class Sort20210324 {
+public class P20210324 {
+    static int length = 100;
     static int[] arrs;
+    private static int MAX_VALUE = 10000;
+
+    @Test
+    public void binarySearchTest(){
+        insertSort();
+        for(int i = 0 ; i < arrs.length ;i++ ){
+            System.out.println( i + "------>" + binarySearch(arrs[i]) + ">>>>>>>>>>>>" + (binarySearch(arrs[i])==i)  );
+        }
+    }
+
+    public int binarySearch(int target){
+        int left = 0;
+        int right = arrs.length-1;
+        int mid = 0;
+        while(left <= right ){
+            mid = left + (right - left)/2;
+            if(target == arrs[mid]){
+                return mid;
+            }else if(target < arrs[mid]){
+                right = mid - 1 ;
+            }else if(target > arrs[mid]){
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
 
     @Test
     public void selectSort(){
@@ -64,13 +93,20 @@ public class Sort20210324 {
     }
 
     public static  void getArrs(){
-        int length = 10000;
         System.out.println("Test array length：" + length );
         arrs = new int[length];
+        Set set = new HashSet<Integer>();
+        int num = 0 ;
         Random random = new Random();
         for(int i  = 0; i < length;i++){
-            arrs[i] = random.nextInt(length);
+            while (set.contains(num = random.nextInt(MAX_VALUE))){
+            }
+            set.add(num);
+            arrs[i] = num;
+            System.out.print(arrs[i]);
+            System.out.print("-");
         }
+        System.out.println("--------------");
     }
 
     public void checkResult(){
