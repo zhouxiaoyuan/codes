@@ -27,14 +27,14 @@ public class P20210324 {
         int left = 0;
         int right = arrs.length-1;
         int mid = 0;
-        while(left <= right ){
+        while(left <= right ){  //计算到重叠
             mid = left + (right - left)/2;
             if(target == arrs[mid]){
                 return mid;
             }else if(target < arrs[mid]){
-                right = mid - 1 ;
+                right = mid - 1 ;       //移动位置，防止位置卡死
             }else if(target > arrs[mid]){
-                left = mid + 1;
+                left = mid + 1;         //移动位置，防止位置卡死
             }
         }
         return -1;
