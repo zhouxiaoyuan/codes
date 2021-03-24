@@ -16,6 +16,11 @@ public class P20210324 {
     private static int MAX_VALUE = 10000;
 
     @Test
+    public void twosum(){
+        //TODO
+    }
+
+    @Test
     public void binarySearchTest(){
         insertSort();
         for(int i = 0 ; i < arrs.length ;i++ ){
