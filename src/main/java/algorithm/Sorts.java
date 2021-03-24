@@ -87,6 +87,30 @@ public class Sorts {
         }
     }
 
+    @Test
+    public void testBinaryFind(){
+        int[] arrs = {2,3,4,5,6,7,8,9,10,11,12,13};
+        System.out.println(binaryFind(arrs,2));
+    }
+
+    public int binaryFind( int[] arr ,int target){
+        int left = 0;
+        int right = arr.length -1 ;
+        int mid = 0;
+        while( left <= right ){
+            mid = left + (right-left)/2;
+            if( arr[mid] == target ){
+                return mid;
+            }else if( target < arr[mid] ){
+                right = mid;
+            }else{
+                left = mid ;
+            }
+        }
+        return -1;
+    }
+
+
     public void swap(int[] arr,int start , int end){
         if(start == end){
             return;
