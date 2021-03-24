@@ -23,6 +23,11 @@ public class P20210324 {
         }
     }
 
+    /**
+     * 二分查找
+     * @param target
+     * @return 返回查找到的数组位置
+     */
     public int binarySearch(int target){
         int left = 0;
         int right = arrs.length-1;
