@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -15,6 +16,43 @@ public class P20210325 {
     static int MAX_VALUE = 100;
     static int[] arrs ;
 
+
+    @Test
+    public void twoSumWithSorted(){
+        insertSort();
+
+        Random random = new Random();
+        int num1 = random.nextInt(length-1);
+        int num2 = random.nextInt(length-1);
+        while( num2 == num1){
+            num2 = random.nextInt(length-1);
+        }
+
+        int sum = arrs[num1] + arrs[num2];
+        System.out.println( sum + "=" + arrs[num1] + "(" + num1 + ")" + "+" + arrs[num2] + "(" + num2 + ")" );
+
+        int left = 0 ;
+        int right = arrs.length - 1;
+        HashMap<Integer,Integer> map = new HashMap();
+        while(left<right){
+            if( sum == arrs[left] + arrs[right] ){
+                map.put(left,right);
+                left++;
+            }else if( sum < arrs[left] + arrs[right] ){
+                right--;
+            }else if( sum > arrs[left] + arrs[right] ){
+                left++;
+            }
+        }
+
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            System.out.println("找到:(" + arrs[entry.getKey()] + "(" + entry.getKey() + ")" + "," +   arrs[entry.getValue()] + "(" + entry.getValue() + ")"+ ")");
+        }
+
+        /*if(map.size()==0){
+            System.out.println("没有找到");
+        }*/
+    }
 
     //TWOSUM 使用map，降低一维查找
     @Test
