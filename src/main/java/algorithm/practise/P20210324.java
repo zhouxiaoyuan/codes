@@ -59,23 +59,23 @@ public class P20210324 {
 
     @Test
     public void selectSort(){
-       getArrs();
-       boolean hasChange = false;
-       int curMin = 0;
-       for(int i = 0 ; i < arrs.length - 1; i++){
-           hasChange = false;
-           curMin = i;
-           for(int j = i + 1  ; j < arrs.length  ; j++ ){
-               if(arrs[j] < arrs[curMin]){
-                   curMin = j;
-                   hasChange = true;
-               }
-           }
-           if(hasChange){
+        getArrs();
+        boolean hasChange = false;
+        int curMin = 0;
+        for(int i = 0 ; i < arrs.length - 1; i++){
+            hasChange = false;
+            curMin = i;
+            for(int j = i + 1  ; j < arrs.length  ; j++ ){
+                if(arrs[j] < arrs[curMin]){
+                    curMin = j;
+                    hasChange = true;
+                }
+            }
+            if(hasChange){
                 swap(arrs,i,curMin);
-           }
-       }
-       checkResult();
+            }
+        }
+        checkResult();
     }
 
 
@@ -142,18 +142,4 @@ public class P20210324 {
 
 }
 
- class TreeNode {
-    int value ;
-    TreeNode left;
-    TreeNode right;
-
-    public void randomInit(){
-
-    }
-
-    public void insertNode(int val){
-
-    }
-
-}
 
