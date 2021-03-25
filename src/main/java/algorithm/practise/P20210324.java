@@ -20,6 +20,13 @@ public class P20210324 {
         //TODO
     }
 
+
+
+    @Test
+    public void tree_first(){
+
+    }
+
     @Test
     public void binarySearchTest(){
         insertSort();
@@ -134,3 +141,19 @@ public class P20210324 {
     }
 
 }
+
+ class TreeNode {
+    int value ;
+    TreeNode left;
+    TreeNode right;
+
+    public void randomInit(){
+
+    }
+
+    public void insertNode(int val){
+
+    }
+
+}
+

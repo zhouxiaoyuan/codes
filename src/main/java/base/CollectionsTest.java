@@ -15,6 +15,12 @@ public class CollectionsTest {
 
     Thread t;
 
+    @Test
+    public void testList(){
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(123);
+    }
+
 
     @Test
     public void test(){
