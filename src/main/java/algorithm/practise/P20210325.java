@@ -2,6 +2,7 @@ package algorithm.practise;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -14,6 +15,45 @@ public class P20210325 {
     static int MAX_VALUE = 100;
     static int[] arrs ;
 
+
+    //TWOSUM 使用map，降低一维查找
+    @Test
+    public void twoSum(){
+        getArray();
+
+        Random random = new Random();
+        int num1 = random.nextInt(length-1);
+        int num2 = random.nextInt(length-1);
+        while( num2 == num1){
+            num2 = random.nextInt(length-1);
+        }
+
+        int sum = arrs[num1] + arrs[num2];
+        System.out.println( sum + "=" + arrs[num1] + "(" + num1 + ")" + "+" + arrs[num2] + "(" + num2 + ")" );
+
+        HashMap<Integer,Integer> map = new HashMap();
+        for(int i = 0 ; i < arrs.length ; i++ ){
+            map.put(arrs[i],i);
+        }
+
+        int findTimes = 0;
+
+        for( int i = 0 ; i < arrs.length ; i++ ){
+            int find = sum - arrs[i];
+            if( map.containsKey(find) && map.get(find) != i){
+                System.out.println("找到:(" + arrs[i] + "(" + i + ")" + "," +   arrs[map.get(find)] + "(" + map.get(find) + ")"+ ")");
+                findTimes++;
+            }
+        }
+
+        if(findTimes == 0 ){
+            System.out.println("没有找到");
+        }
+
+
+
+
+    }
 
     @Test
     public void chechBinarySearch(){
