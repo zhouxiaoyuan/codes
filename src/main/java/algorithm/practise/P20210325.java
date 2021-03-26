@@ -13,9 +13,9 @@ import java.util.Random;
  * @Created by Administrator on 2021/3/25 15:02
  */
 public class P20210325 {
-    static int length = 20;
-    static int MAX_VALUE = 100;
-    static int[] arrs ;
+    static public int length = 20;
+    static public int MAX_VALUE = 100;
+    static public int[] arrs ;
 
 
     @Test
