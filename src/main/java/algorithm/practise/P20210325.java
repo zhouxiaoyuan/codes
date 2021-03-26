@@ -1,5 +1,6 @@
 package algorithm.practise;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -217,9 +218,54 @@ public class P20210325 {
     }
 
 
+    @Test
+    public void testADD(){
 
-    public void test(long i){
+        String a =        "101011011";
+        String b = "1101010101010101";
+        if(a==null || a.length() == 0 ) return ;
+        if(b==null || b.length() == 0  ) return ;
 
+        int l = a.length() > b.length() ? a.length() : b.length();
+        l = l + 1;
+        System.out.println(l);
+        int[] result = new int[l];
+        for(int i = 0 ; i < result.length ; i++){
+            result[i] = -1;
+        }
+        int add = 0;
+        int up = 0 ;
+        for(int i = 0 ; i < l  ; i++){
+            add = 0;
+            if(i<=a.length()-1){
+                add += (int)(a.charAt(a.length()-1-i)-'0');
+            }
+            if(i<=b.length()-1){
+                add += (int)(b.charAt(b.length()-1-i)-'0');
+            }
+            add += up;
+            if(add <= 1){
+                result[i] = add;
+                up = 0;
+            }else{
+                result[i] = add - 2 ;
+                up = 1;
+            }
+        }
+        /*if(up > 0 ){
+            result[l+1] = 1;
+        }*/
+
+        String s = "";
+        for(int i = result.length - 1 ; i >= 0 ; i-- ){
+            if( i < (result.length - 1) || (i == (result.length - 1) && result[i] > 0) ){
+                s = s + result[i];
+
+            }
+        }
+
+
+        System.out.println(s);
     }
 
 }
