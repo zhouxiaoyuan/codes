@@ -2,6 +2,8 @@ package algorithm.practise;
 
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**
@@ -14,6 +16,33 @@ public class P20210326 extends  P20210325{
     static int MAX_VALUE = 1000;
     static int[] arrs ;
     static String SPACE = "-";*/
+
+    public static void main(String[] args) {
+
+        Class c = HashMap.class;
+        c.getFields();
+        Method[] methods = c.getDeclaredMethods();
+
+        try {
+
+            HashMap hashMap = new HashMap();
+            hashMap.put(1,1);
+            hashMap.put(2,1);
+            hashMap.put(3,1);
+            hashMap.put(4,1);
+
+            Field f = c.getDeclaredField("size");
+
+            f.setAccessible(true);
+            Object node = f.get(hashMap);
+            System.out.println(node);
+
+        } catch ( Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     @Test
     public void testTwoSum(){
@@ -176,7 +205,7 @@ public class P20210326 extends  P20210325{
          ListNode(int val, ListNode next) { this.val = val; this.next = next; }
    }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         ListNode head = new ListNode(3);
         ListNode op = head;
         op.next = new ListNode(5);
