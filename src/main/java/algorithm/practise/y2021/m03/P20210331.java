@@ -8,10 +8,18 @@ import java.util.Stack;
  * @Description P20210331
  * @Created by Administrator on 2021/3/31 10:21
  */
-public class P20210331 {
+public class P20210331  {
 
 
     public static void main(String[] args) {
+
+
+
+
+
+
+
+
         //树
         TreeNode node = TreeNode.getTree();
 
@@ -67,12 +75,7 @@ public class P20210331 {
                 System.out.print(p.val + "-");
                 p = p.right;
             }
-
         }*/
-
-
-
-
 
 
     }

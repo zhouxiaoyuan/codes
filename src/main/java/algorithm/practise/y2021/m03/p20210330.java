@@ -2,8 +2,6 @@ package algorithm.practise.y2021.m03;
 
 import algorithm.practise.ListNode;
 
-import java.util.List;
-
 /**
  * @Description p20210330
  * @Created by Administrator on 2021/3/30 9:08

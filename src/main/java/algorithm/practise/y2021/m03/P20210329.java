@@ -27,10 +27,8 @@ public class P20210329 {
 
     public static void main(String[] args) throws InterruptedException {
         boolean breakFlag = false;
-        Thread t1 = new T1();
 
 
-        t1.start();
         breakFlag = true;
         while (true){
             TimeUnit.SECONDS.sleep(1);
@@ -39,16 +37,4 @@ public class P20210329 {
 
 
 
-}
-
-class T1 extends  Thread{
-    boolean breakFlag = false;
-    @Override
-    public void run(){
-        System.out.println("start");
-        while(!breakFlag){
-
-        }
-        System.out.println("end");
-    }
 }

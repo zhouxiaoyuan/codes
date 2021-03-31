@@ -1,4 +1,4 @@
-package algorithm.practise;
+package algorithm.practise.y2021.m03;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package algorithm.practise;
+package algorithm.practise.y2021.m03;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.junit.Test;
