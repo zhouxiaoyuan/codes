@@ -21,14 +21,17 @@ public class ListNode {
 
     public static void main(String[] args) {
 
-        getListNode();
+        /*getListNode();
 
         ListNode tempNode = node.next;
         while(tempNode != null){
             System.out.print(tempNode.val);
             System.out.print("-");
             tempNode = tempNode.next;
-        }
+        }*/
+
+
+
     }
 
     public static ListNode getListNode(){
@@ -47,6 +50,30 @@ public class ListNode {
         }
         System.out.println( sb.toString().substring(0,sb.length()-1));
         return node;
+    }
+
+
+    public ListNode deleteDuplicates(ListNode head) {   //83. 删除排序链表中的重复元素
+        if(head == null){
+            return null;
+        }
+
+        ListNode pre = head;
+        ListNode next = head.next;
+        int cur = pre.val;
+        while( next != null ){
+
+            if( pre.val == next.val){
+                next = next.next;
+                pre.next = next;
+                continue;
+            }
+            pre = next;
+            next = next.next;
+
+        }
+
+        return head;
     }
 
 }
