@@ -49,6 +49,38 @@ public class ArrayFactory {
         System.out.println("success");
     }
 
+    /***********归并排序*************************************************/
+    public void gbSort(int[] arrs,int start ,int end){
+        if(arrs==null ||  start >= end){
+            return ;
+        }
+        int mid = start + ((end-start)>>1);
+        gbSort(arrs,start, mid);
+        gbSort(arrs,mid+1,end);
+        merge(arrs,start , mid ,end);
+
+    }
+
+    public void merge(int[] arrs, int start , int mid, int end){
+        int p1 = start;
+        int p2 = mid+1;
+        int p = 0;
+        int[] helper = new int[end-start+1];
+        while(p1 <= mid && p2 <= end){
+            helper[p++] = arrs[p1] <= arrs[p2] ? arrs[p1++] : arrs[p2++];
+        }
+        while(p1 <= mid){
+            helper[p++] = arrs[p1++];
+        }
+        while(p2 <= end){
+            helper[p++] = arrs[p2++];
+        }
+
+        for(int i = 0 ; i < helper.length ; i++){
+            arrs[start+i] = helper[i];
+        }
+    }
+
     /***************快速排序**************/
     public static void quickSort(int[] arrs ,int start ,int end){
         if( start >= end ){
@@ -78,4 +110,19 @@ public class ArrayFactory {
         return mark;
 
     }
+
+    /*
+    交换数组下标对应的值
+     */
+    public void swap(int[] arrs, int start , int end){
+        if( arrs == null || start == end || start >= arrs.length || end >= arrs.length ){
+            return ;
+        }
+
+        int temp = arrs[start];
+        arrs[start] = arrs[end];
+        arrs[end] = temp;
+    }
+
+
 }
