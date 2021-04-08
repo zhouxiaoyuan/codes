@@ -2,6 +2,9 @@ package algorithm.practise.y2021.m04;
 
 import algorithm.practise.ArrayFactory;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @Description P20210406
  * @Created by Administrator on 2021/4/6 9:06
@@ -9,10 +12,26 @@ import algorithm.practise.ArrayFactory;
 public class P20210406 {
 
     public static void main(String[] args) {
-        int arrs[] = ArrayFactory.getArray();
+        /*int arrs[] = ArrayFactory.getArray();
         P20210406 sort = new P20210406();
         sort.gbSort(arrs, 0, arrs.length-1);
-        ArrayFactory.check(arrs);
+        ArrayFactory.check(arrs);*/
+
+        String s = "{\"code\":\"0\",\"msg\":\"\",\"data\":{\"access_token\":\"be8858b9-1178-406f-9b9e-06acc79df6d5\",\"token_type\":\"bearer\",\"expires_in\":28799,\"scope\":\"all\",\"refresh_token\":\"27b18f5d-1e99-4cce-b762-4f2ac017342d\"}}";
+        String regex = "\\*access_token:\"()\"*";
+//        Pattern p = Pattern.compile("^.{*}access_token\":\"(.{*})\".{*}$");
+//        Pattern p = Pattern.compile("^.*access_token\":\"([0-9a-z-]*)\".*$");
+        Pattern p = Pattern.compile("^.*access_token\":\"([0-9a-z-]*)\".*$");
+        Matcher matcher = p.matcher(s);
+        System.out.println(matcher.matches());
+        System.out.println(matcher.end());
+        System.out.println(matcher.group(1));
+
+
+
+
+
+
     }
 
     /***************************************************************************/
