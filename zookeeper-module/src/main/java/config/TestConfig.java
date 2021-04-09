@@ -17,7 +17,7 @@ public class TestConfig {
 
     @Before
     public void conn (){
-        zk  = ZKUtil.getZK();
+        zk  = ZKUtils.getZK();
     }
 
     @After
