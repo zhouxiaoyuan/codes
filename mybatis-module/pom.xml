@@ -13,6 +13,10 @@
 
     <groupId>org.zxy</groupId>
     <artifactId>mybatis-module</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-cloud-eureka-server2</module>
+    </modules>
 
     <dependencies>
         <dependency>
