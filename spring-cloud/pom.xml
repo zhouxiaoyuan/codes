@@ -10,6 +10,7 @@
         <module>spring-cloud-eureka-provider1</module>
         <module>spring-cloud-eureka-client1</module>
         <module>spring-cloud-eureka-consumer1</module>
+        <module>spring-cloud-eureka-provider2</module>
     </modules>
 
     <parent>
