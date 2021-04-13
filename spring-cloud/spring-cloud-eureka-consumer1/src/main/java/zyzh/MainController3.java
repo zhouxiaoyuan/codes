@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
@@ -110,5 +113,19 @@ public class MainController3 {
 		return null;
 		
 		
+	}
+
+
+	public void soketTest(){
+		try {
+			ServerSocket ss = new ServerSocket(8800);
+			Socket socket = ss.accept();
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
 	}
 }

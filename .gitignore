@@ -1,2 +1,5 @@
 /zookeeper-module/target/
 /.idea/
+/spring-cloud/spring-cloud-eureka-consumer1/target/
+/spring-cloud/*/target/
+

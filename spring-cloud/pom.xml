@@ -8,9 +8,11 @@
         <module>spring-cloud-eureka-server1</module>
         <module>spring-cloud-eureka-server2</module>
         <module>spring-cloud-eureka-provider1</module>
-        <module>spring-cloud-eureka-client1</module>
         <module>spring-cloud-eureka-consumer1</module>
         <module>spring-cloud-eureka-provider2</module>
+        <module>spring-cloud-user-consumer</module>
+        <module>user-api</module>
+        <module>spring-cloud-user-provider</module>
     </modules>
 
     <parent>

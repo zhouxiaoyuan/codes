@@ -1,5 +1,7 @@
 package zyzh;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.discovery.EurekaClient;
@@ -26,6 +28,8 @@ public class MainController {
 	
 	@Autowired
 	LoadBalancerClient lb;
+
+	public static ObjectMapper mapper = new ObjectMapper();
 	
 	
 	@GetMapping("/getHi")
@@ -38,12 +42,20 @@ public class MainController {
 	@GetMapping("/client")
 	public String client() {
 		List<String> services = client.getServices();
-		
+
 		for (String str : services) {
 			System.out.println(str);
-			
 		}
-		return "Hi";
+
+
+		String s = "";
+		try {
+			s = mapper.writeValueAsString(services);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return s;
 	}
 	@GetMapping("/client2")
 	public Object client2() {
