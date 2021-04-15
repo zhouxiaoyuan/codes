@@ -3,6 +3,7 @@ package base;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
@@ -17,8 +18,9 @@ public class CollectionsTest {
 
     @Test
     public void testList(){
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(123);
+        int[] ids = {5,2,7};
+        String s = Arrays.toString(ids);
+        System.out.println(s.substring(1, s.length()-1 ));
     }
 
 
@@ -71,7 +73,6 @@ public class CollectionsTest {
 
 
 
-    @Test
     public static void test1() throws InterruptedException, ExecutionException {
         System.out.println(Thread.currentThread().getName());
         System.out.println("通过线程池创建线程");
