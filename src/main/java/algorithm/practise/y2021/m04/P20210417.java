@@ -13,11 +13,57 @@ public class P20210417 {
 
     public static void main(String[] args) {
 
-        int[] arrs = ArrayFactory.getArray(10, 100);
-        bucketSort(arrs);
-        ArrayFactory.check(arrs);
+        int[] arrs = ArrayFactory.getArray(7, 100);
+//        bucketSort(arrs);
+//        ArrayFactory.check(arrs);
+
+        HeapSort heapSort = new HeapSort(arrs);
+
+        System.out.println();
 
     }
+
+    public static class HeapSort{
+
+        int[] arrs ;
+        int heapSize ;
+        public HeapSort(int[] arrs){
+            heapSize = arrs.length;
+            this.arrs = new int[arrs.length*2];
+            initHeap();
+
+        }
+
+        public void print(){
+            System.out.println(Arrays.toString(arrs));
+        }
+
+        public void initHeap(){
+            for(int i = 1;i<heapSize;i++){
+                heapinsert(i);
+            }
+        }
+
+
+        public void heapinsert(int start){
+            if (heapSize+1 > arrs.length) {
+                return ;
+            }
+            while( arrs[start] > arrs[(start-1)/2] ){
+                int tmp = arrs[start];
+                arrs[start] = arrs[(start-1)/2];
+                arrs[(start-1)/2] = tmp;
+                start = (start-1)/2;
+            }
+        }
+
+
+
+    }
+
+
+
+
 
     /**
      * @Author zhouxiaoyuan
