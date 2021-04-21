@@ -37,10 +37,96 @@ public class TreeNode {
         //System.out.println( isBalanced(getTree(3,100)));
 
         //System.out.println( increasingBST(getTree(2,100)));
-        System.out.println( increasingBSTWithStack(getTree(2,100)));
+        //System.out.println( increasingBSTWithStack(getTree(2,100)));
 
         /*TreeNode node = getTree();
         System.out.println(node);*/
+
+        TreeNode node = getTree(5, 50);
+        int type = 2;
+        System.out.println("");
+        dg(node,type);
+        System.out.println("");
+//        notDg(node,type);
+        backDg(node);
+        System.out.println("");
+
+    }
+
+    public static void notDg(TreeNode node,int type){
+        if(node == null ){
+            return ;
+        }
+        Stack<TreeNode> stack = new Stack();
+        while( !stack.empty() || node != null){
+            if(node!=null){
+                if( type == 0 ){
+                    System.out.print(node.val + "-");
+                }
+                stack.push(node);
+                node = node.left;
+            }else{
+                node = stack.pop();
+                if( type == 1 ){
+                    System.out.print(node.val + "-");
+                }
+                node = node.right;
+            }
+        }
+    }
+
+
+    public static void backDg(TreeNode node){
+
+        if(node==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        while(node != null || !stack.empty()){
+
+           while( node != null){
+               stack.push(node);
+               node = node.left;
+           }
+           node = stack.pop();
+            System.out.print(node.val + "-");
+            if( !stack.empty() && node == stack.peek().left ){
+                node = stack.peek().right;
+            }else{
+                node = null;
+            }
+
+        }
+    }
+
+    public static void dgPre(TreeNode node){
+        dg(node,0);
+    }
+
+    public static void dgMid(TreeNode node){
+        dg(node,1);
+    }
+
+    public static void dgBack(TreeNode node){
+        dg(node, 2);
+    }
+
+    public static void dg(TreeNode node,int type){
+        if(node == null){
+            return ;
+        }
+        if(type==0){
+            System.out.print(node.val + "-");
+        }
+
+        dg(node.left,type);
+        if(type==1){
+            System.out.print(node.val + "-");
+        }
+        dg(node.right,type);
+        if(type==2){
+            System.out.print(node.val + "-");
+        }
     }
 
   public static TreeNode getTree(){
@@ -253,6 +339,10 @@ public class TreeNode {
         return head;
 
     }
+
+
+
+
 
 
 
