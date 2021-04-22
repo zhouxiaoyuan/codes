@@ -1,5 +1,6 @@
 
-
+青花瓷
+https://www.charlesproxy.com
 
 整体思路:
 1. 安装nginx, 使用淘宝tengine ,安装步骤参考以下
@@ -9,6 +10,9 @@ upstream 方向代理
 达到动静分离
 
 多tomcat共享session
+
+>  openssl
+http://slproweb.com/products/Win32OpenSSL.html
 
 
 configure --prefix=/bigdata/tengine
