@@ -51,7 +51,7 @@ public class P20210421 {
         if(root == null){
             return ;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         TreeNode node;
         while (!stack.empty()){
@@ -72,7 +72,7 @@ public class P20210421 {
         if(root == null){
             return ;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
 
         stack.push(root);
         TreeNode node;
@@ -94,7 +94,7 @@ public class P20210421 {
         if(root==null){
             return ;
         }
-        Stack<TreeNode> statck = new Stack<>();
+        Stack<TreeNode> statck = new Stack<TreeNode>();
 
         TreeNode node = root;
         //statck.push(root);
