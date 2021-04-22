@@ -1,5 +1,6 @@
 package algorithm.practise.y2021.m04;
 
+import algorithm.practise.ArrayFactory;
 import algorithm.practise.TreeNode;
 
 import java.util.Stack;
@@ -12,12 +13,16 @@ public class P20210421 {
 
     public static void main(String[] args) {
 
-        TreeNode root = TreeNode.getTree(5, 100);
+        /*TreeNode root = TreeNode.getTree(5, 100);
 
         System.out.println("");
         dgPre(root);
         System.out.println("");
-        pre1(root);
+        pre1(root);*/
+
+        int[] arrs = ArrayFactory.getArray(10, 50);
+        quickSort(arrs,0,arrs.length-1);
+        ArrayFactory.check(arrs);
 
 
     }
@@ -130,4 +135,43 @@ public class P20210421 {
     }
 
 
+    public static void  quickSort(int[] arrs,int l ,int r){
+        if(arrs==null || arrs.length == 1){
+            return ;
+        }
+        if( l >= r){
+            return ;
+        }
+        int mid = quickSortPovit(arrs, l,r );
+        quickSort(arrs, l, mid-1);   //一定注意需要调用自身
+        quickSort(arrs, mid+1, r);
+
+
+    }
+
+    public static int quickSortPovit(int[] arrs,int l ,int r) {
+        if(arrs==null || arrs.length == 1){
+            return -1;
+        }
+
+        if( l >= r){
+            return -1;
+        }
+        int mark = l;
+        int povit = arrs[mark];
+
+        for(int i = l+1 ; i <= r ; i++ ){
+            if( arrs[i] < povit ){
+                mark++;
+                int temp = arrs[i];
+                arrs[i] = arrs[mark];
+                arrs[mark] = temp;
+            }
+        }
+
+        arrs[l] = arrs[mark];
+        arrs[mark] = povit;
+        return mark;
+
+    }
 }
