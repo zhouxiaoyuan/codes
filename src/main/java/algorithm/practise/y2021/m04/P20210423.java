@@ -5,6 +5,9 @@ import algorithm.practise.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description algorithm.practise.y2021.m04.P20210423
@@ -13,14 +16,33 @@ import java.util.Stack;
 public class P20210423 {
 
     public static void main(String[] args) {
-        TreeNode root = TreeNode.getTree(3, 50);
+
+
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 5, 10, TimeUnit.MINUTES, new ArrayBlockingQueue<>(2));
+
+        for (int i = 0; i < 50; i++) {
+            threadPoolExecutor.execute(()->
+            {
+                System.out.println(Thread.currentThread().getName());
+            });
+        }
+
+
+        while(true){
+
+        }
+
+
+
+
+        /*TreeNode root = TreeNode.getTree(3, 50);
         TreeNode node = root;
         System.out.println("");
         TreeNode.dg(node,1);
         System.out.println("");
 //        level(root);
         pre2(node);
-        System.out.println("");
+        System.out.println("");*/
     }
 
     public static void pre(TreeNode node) {

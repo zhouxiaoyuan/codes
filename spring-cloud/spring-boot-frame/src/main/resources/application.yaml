@@ -1,0 +1,8 @@
+server:
+  port: 8888
+
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  tracker-list:
+    - 172.16.17.53:22122

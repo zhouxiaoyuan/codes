@@ -13,6 +13,7 @@
         <module>spring-cloud-user-consumer</module>
         <module>user-api</module>
         <module>spring-cloud-user-provider</module>
+        <module>spring-boot-frame</module>
     </modules>
 
     <parent>
