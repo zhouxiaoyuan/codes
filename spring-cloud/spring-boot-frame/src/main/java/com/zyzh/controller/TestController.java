@@ -1,4 +1,4 @@
-package com.zyzh;
+package com.zyzh.controller;
 
 import com.github.tobato.fastdfs.domain.fdfs.MetaData;
 import com.github.tobato.fastdfs.domain.fdfs.StorePath;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @Description com.zyzh.TestController
+ * @Description com.zyzh.controller.TestController
  * @Created by zhouxiaoyuan on 2021/4/23 15:09
  */
 @Controller
@@ -34,10 +34,10 @@ public class TestController implements InitializingBean {
 
     @RequestMapping("/list")
     public String list(Model map) {
-        List<City> list =  new ArrayList<>();
+        /*List<City> list =  new ArrayList<>();
         list.add(new City(1,"北京"));
         list.add(new City(2,"上海"));
-        map.addAttribute("list", list);
+        map.addAttribute("list", list);*/
         return "list";
     }
 

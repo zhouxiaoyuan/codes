@@ -1,8 +1,27 @@
 server:
   port: 8888
 
+spring:
+  datasource:
+    url: jdbc:mysql://172.16.16.206:3306/risk_intercept?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.zyzh.entity
+  mapper-locations: classpath:/mapper/*.xml    #以/开头否则找不到文件
+  show_sql: true
+
 fdfs:
   so-timeout: 1500
   connect-timeout: 600
   tracker-list:
     - 172.16.17.53:22122
+
+logging:
+  level:
+    com:
+      zyzh:
+        mapper: debug
+

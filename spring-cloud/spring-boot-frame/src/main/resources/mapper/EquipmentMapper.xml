@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyzh.mapper.EquipmentMapper">
+
+    <sql id="baseInfo"> id, type, parent, name, ip, access_address, des, status, show_flag, show_order, ext1, ext2, ext3, ext4, ext5, create_time, update_time</sql>
+
+    <select id="getOne" resultType="com.zyzh.entity.Equipment">
+        select <include refid="baseInfo"></include> ,  (select name from fxj_equipment where id= t.parent ) as pname
+        from fxj_equipment t
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <select id="findByCondition" resultType="com.zyzh.entity.Equipment">
+        select <include refid="baseInfo"></include> ,  (select name from fxj_equipment where id= t.parent ) as pname
+        from fxj_equipment t
+        <where>
+            delete_status=0
+            <choose>
+                <when test="notParentFlag">
+                    and parent > 0
+                </when>
+                <when test=" parentId != null">
+                    and parent=#{parentId}
+                </when>
+            </choose>
+            <if test=" type != null">
+                and type = #{type}
+            </if>
+            <if test=" name != null">
+                and name like '%${name}%'
+            </if>
+            <if test=" extConditon != null">
+                ${extConditon}
+            </if>
+        </where>
+        order by show_order,type,id
+        <if test=" count != null">
+            limit
+            <if test=" start != null">
+                ${start},
+            </if>
+            ${count}
+        </if>
+    </select>
+
+    <update id="cleanShowFlag" >
+        update fxj_equipment set show_flag = 0 where type = #{type}
+    </update>
+
+    <update id="setShowFlag" >
+        update fxj_equipment set show_flag = #{showType}  where delete_status=0 and type= #{type} AND id in (${ids})
+    </update>
+
+    <update id="updateEquipmentStatus" >
+        update fxj_equipment set set status = #{status}  where delete_status=0 and id=#{id}  AND ( status is null or status !=  #{status} )
+    </update>
+
+
+</mapper>
+

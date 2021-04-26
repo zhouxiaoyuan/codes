@@ -1,5 +1,6 @@
 package com.zyzh;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Created by zhouxiaoyuan on 2021/4/23 15:10
  */
 @SpringBootApplication
+@MapperScan("com.zyzh.mapper")
 public class BootApplication {
 
 
