@@ -22,18 +22,6 @@ public class EquipmentController {
 	@Autowired
 	private EquipmentService equipmentService;
 
-	@Autowired
-	private EquipmentMapper equipmentMapper;
-
-//	@Value("${EQUIPMENT_CAMERA_GROUP_INFO}")
-//	public  String EQUIPMENT_CAMERA_GROUP_INFO;
-
-	@GetMapping("/getOne" )
-	@ResponseBody
-	public Equipment getOne(String id){
-		return equipmentMapper.getOne(id);
-	}
-
 	@PostMapping("/add")
 	public OperateResult add(Equipment equipment) {
 		return equipmentService.add(equipment);
