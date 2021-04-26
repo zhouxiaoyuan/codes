@@ -1,27 +1,8 @@
 <html>
 
-
-
 <body>
-City List
-<hr>
-
-<table border="1">
-
-	<tr>
-		<th>ID</th>
-		<th>Name</th>
-	</tr>
-
-	<tr th:each="city : ${list}">
-		<!-- EL JSTL-->
-		<td th:text = "${city.id}"></td>
-		<td th:text = "${city.name}"></td>
-	</tr>
-
-</table>
-
-<form method="post" action="/uploadFile" enctype="multipart/form-data">
+文件上传<br>
+<form method="post" action="/equipment/uploadFile" enctype="multipart/form-data">
 	<input name="filename" type="file" />
 	<button type="submit" class="btn btn-default">Submit</button>
 </form>

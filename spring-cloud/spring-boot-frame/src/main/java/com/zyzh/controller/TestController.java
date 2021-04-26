@@ -32,12 +32,8 @@ public class TestController implements InitializingBean {
     @Autowired
     private FastFileStorageClient fc;
 
-    @RequestMapping("/list")
+    @RequestMapping("/equipment/list")
     public String list(Model map) {
-        /*List<City> list =  new ArrayList<>();
-        list.add(new City(1,"北京"));
-        list.add(new City(2,"上海"));
-        map.addAttribute("list", list);*/
         return "list";
     }
 

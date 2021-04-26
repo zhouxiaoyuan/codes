@@ -1,5 +1,4 @@
 
-
 1. fastDFS 按照文档配置即可
 nginx 配置
 location ~ /group([0-9])/M00 {
@@ -8,4 +7,15 @@ location ~ /group([0-9])/M00 {
 	}
 	
 2. mybatis https://baomidou.com/
+
+3. 启用服务 fastDFS服务
+systemctl enable fdfs_trackerd
+systemctl enable fdfs_storaged
+systemctl enable nginx
+
+4. 文件
+查看 使用nginx
+http://172.16.17.53/equipment/down?group=group1&filePath=M00/00/00/rBARNWCGbzGAesSVAAFW-2DQsPw610.jpg&fileName=xxx.jpg
+下载
+172.16.17.39:8888/equipment/down?group=group1&filePath=M00/00/00/rBARNWCGcd2AEkUAAAEPSycAdKM931.jpg&fileName=xxx00.jpg
 
