@@ -3,9 +3,7 @@ package algorithm.practise.y2021.m04;
 import algorithm.practise.ArrayFactory;
 import algorithm.practise.TreeNode;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Description algorithm.practise.y2021.m04.P20210427
@@ -14,6 +12,7 @@ import java.util.Stack;
 public class P20210427 {
 
     public static void main(String[] args) {
+        //树遍历 前中后
         /*TreeNode root = TreeNode.getTree(10, 50);
         int type = 2;
         TreeNode node = root;
@@ -24,7 +23,8 @@ public class P20210427 {
         System.out.println("s2:"+s2);
         System.out.println(s1.equals(s2));*/
 
-        for(int i = 0 ; i < 10000 ; i++ ){
+        //堆排序
+        /*for(int i = 0 ; i < 10000 ; i++ ){
             int[] arrs = ArrayFactory.getArray(100, 200);
             Heap heap = new Heap(arrs, new MaxComparator());
             heap.sort();
@@ -33,7 +33,61 @@ public class P20210427 {
                 return ;
             }
         }
-        System.out.println("sucess");
+        System.out.println("sucess");*/
+
+        //树的最大宽度
+        /*for(int i = 0 ; i < 10 ; i++){
+            TreeNode node = TreeNode.getTree(i, 30);
+            System.out.println( i + "---" + getMaxWide(node) );
+        }*/
+
+        //折叠纸
+        int num = 6;
+        int point = 1;
+        foldingPaper(num , point, true);
+
+    }
+
+    //折叠纸
+    public static void foldingPaper(int num,int point ,boolean dent){
+        if(point>num){
+            return ;
+        }
+        foldingPaper(num, point+1, true);
+        System.out.print( dent ? "凹" : "凸");
+        foldingPaper(num, point+1, false);
+    }
+
+
+    public static int getMaxWide(TreeNode node){
+        int max = 0 ;
+        if( node == null ){
+            return max;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode curEnd = node;
+        TreeNode nextEnd = null;
+        queue.offer(node);
+        int curNum = 0;
+        while(!queue.isEmpty()){
+            node = queue.poll();
+            curNum ++;
+            if( node.left != null){
+                nextEnd = node.left;
+                queue.offer(node.left);
+            }
+            if( node.right != null ){
+                nextEnd = node.right;
+                queue.offer(node.right);
+            }
+            if( node == curEnd ){
+                curEnd = nextEnd;
+                max = Math.max(max, curNum);
+                curNum = 0;
+                nextEnd = null;
+            }
+        }
+        return max;
     }
 
 
