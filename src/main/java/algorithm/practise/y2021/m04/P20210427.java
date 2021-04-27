@@ -42,10 +42,25 @@ public class P20210427 {
         }*/
 
         //折叠纸
-        int num = 6;
+        /*int num = 6;
         int point = 1;
-        foldingPaper(num , point, true);
+        foldingPaper(num , point, true);*/
 
+        //二叉树最大距离
+
+    }
+
+
+
+    public static Info getMaxDis(){
+
+        return new Info();
+    }
+
+    public static class Info{
+        int maxDis;
+        int leftDepth ;
+        int rightDepth ;
     }
 
     //折叠纸

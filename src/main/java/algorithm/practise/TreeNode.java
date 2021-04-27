@@ -2,10 +2,7 @@ package algorithm.practise;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Description TreeNode
@@ -15,7 +12,7 @@ public class TreeNode {
   public int val;
   public TreeNode left;
   public TreeNode right;
-  TreeNode() {}
+  public TreeNode() {}
   TreeNode(int val) { this.val = val; }
   TreeNode(int val, TreeNode left, TreeNode right) {
       this.val = val;
@@ -51,6 +48,36 @@ public class TreeNode {
         backDg(node);
         System.out.println("");
 
+    }
+
+    @Test
+    public void testToArray(){
+        int depth = 5;
+        TreeNode node = TreeNode.getTree(depth, 100);
+        int i = 1 ;
+        int size = 1;
+        int levelSize = 1;
+        while( i < depth ){
+            levelSize = levelSize <<1 ;
+            size += levelSize;
+            i++;
+        }
+//        size = size - 1;
+        System.out.println("array size:" + size);
+
+        TreeNode[] arrs = new TreeNode[size];
+        toArray(arrs,0,node);
+        System.out.println(Arrays.toString(arrs));
+    }
+
+    public static void toArray(TreeNode[] arrs , int position, TreeNode node){
+        arrs[position] = node;
+        if(node.left!=null){
+            toArray(arrs, 2*position+1, node.left);
+        }
+        if(node.right!=null){
+            toArray(arrs, 2*position+2, node.right);
+        }
     }
 
     public static void notDg(TreeNode node,int type){
@@ -350,9 +377,10 @@ public class TreeNode {
     }
 
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "{" +
+                "val=" + val +
+                '}';
+    }
 }
