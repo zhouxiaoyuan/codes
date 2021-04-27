@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -129,8 +128,8 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    public List findByCondition(String parentId,String type,String name ,String start, String count ,String extConditon){
-        return equipmentMapper.findByCondition( EquipmentService.EQUIPMENT_QUERY_FLAG.equals(parentId),parentId,type,name,start,count,extConditon);
+    public List findByCondition(String parentid,String type,String name ,String start, String count ,String extConditon){
+        return equipmentMapper.findByCondition(parentid,type,name,start,count,extConditon);
     }
 
 }

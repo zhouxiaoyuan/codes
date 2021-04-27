@@ -18,11 +18,13 @@
         <where>
             delete_status=0
             <choose>
-                <when test="notParentFlag">
+                <when test=" parentid == null">
+                </when>
+                <when test=" parentid == -1">
                     and parent > 0
                 </when>
-                <when test=" parentId != null">
-                    and parent=#{parentId}
+                <when test=" parentid >= 0">
+                    and parent = #{parentid}
                 </when>
             </choose>
             <if test=" type != null">
