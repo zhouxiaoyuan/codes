@@ -52,6 +52,41 @@ public class ListNode {
         return node;
     }
 
+    public static ListNode getListNode(int length){
+        node = new ListNode(0);
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        HashSet set = new HashSet();
+        int val;
+        ListNode pointNode = node;
+        for(int i = 0 ; i < length ; i++ ){
+            while(set.contains(( val = random.nextInt(MAX_VALUE)))){}
+            ListNode tempNode = new ListNode(val);
+            pointNode.next = tempNode;
+            pointNode = tempNode;
+            sb.append(tempNode.val).append("-");
+        }
+        System.out.println( sb.toString().substring(0,sb.length()-1));
+        return node;
+    }
+
+    public static String getNodeString(ListNode node){
+        StringBuilder sb = new StringBuilder("");
+        while(node!=null){
+            sb.append( node.toString() );
+            node = node.next;
+        }
+        String s = sb.toString();
+        if(s.length() > 0 ){
+            s = s.substring(0,s.length()-1);
+        }
+        return s;
+    }
+
+    @Override
+    public String toString(){
+        return "{" + this.val + "},";
+    }
 
     public ListNode deleteDuplicates(ListNode head) {   //83. 删除排序链表中的重复元素
         if(head == null){

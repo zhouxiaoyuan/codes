@@ -1,6 +1,8 @@
 package algorithm.practise.y2021.m04;
 
 import algorithm.practise.ArrayFactory;
+import algorithm.practise.LinkedFactory;
+import algorithm.practise.ListNode;
 import algorithm.practise.TreeNode;
 
 import java.util.*;
@@ -46,10 +48,32 @@ public class P20210427 {
         int point = 1;
         foldingPaper(num , point, true);*/
 
-        //二叉树最大距离
+        //TODO 二叉树最大距离
 
+
+        //test reference
+
+
+        //
+        ListNode root  = ListNode.getListNode(3);
+        ListNode node = root;
+        System.out.println(ListNode.getNodeString(node));
+        root = revesal(root);
+        System.out.println(ListNode.getNodeString(root));
     }
 
+    //反转链表
+    public static ListNode revesal(ListNode node){
+        ListNode pre = null;
+        ListNode next = null;
+        while(node!=null){
+            next = node.next;
+            node.next = pre;
+            pre = node;
+            node = next;
+        }
+        return pre;
+    }
 
 
     public static Info getMaxDis(){

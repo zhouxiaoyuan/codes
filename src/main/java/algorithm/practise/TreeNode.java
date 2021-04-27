@@ -13,7 +13,7 @@ public class TreeNode {
   public TreeNode left;
   public TreeNode right;
   public TreeNode() {}
-  TreeNode(int val) { this.val = val; }
+  public TreeNode(int val) { this.val = val; }
   TreeNode(int val, TreeNode left, TreeNode right) {
       this.val = val;
       this.left = left;
@@ -64,10 +64,38 @@ public class TreeNode {
         }
 //        size = size - 1;
         System.out.println("array size:" + size);
+        System.out.println("get node size:" + getNodeSize(node));
 
         TreeNode[] arrs = new TreeNode[size];
         toArray(arrs,0,node);
         System.out.println(Arrays.toString(arrs));
+    }
+
+    public static int getNodeSize(TreeNode node){
+        int size = 0 ;
+        if(node == null ){
+            return size;
+        }
+        Stack<TreeNode> stack = new Stack();
+        while( !stack.empty() || node != null){
+            while(node!=null){
+                size++;
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
+        return size;
+
+    }
+
+    public static TreeNode[] getArray(TreeNode root){
+        TreeNode node = root;
+        int size = getNodeSize(node);
+        TreeNode[] arrs = new TreeNode[size];
+        toArray(arrs,0,root);
+        return arrs;
     }
 
     public static void toArray(TreeNode[] arrs , int position, TreeNode node){
