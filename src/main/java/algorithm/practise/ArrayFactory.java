@@ -27,26 +27,25 @@ public class ArrayFactory {
             set.add(arrs[i]);
             sb.append(arrs[i]).append("-");
         }
-        System.out.println( sb.toString().substring(0,sb.length()-1));
+        //System.out.println( sb.toString().substring(0,sb.length()-1));
         return arrs;
     }
 
-    public static void check(int[] arrs){
+    public static Boolean check(int[] arrs){
         System.out.println();
 
         System.out.print( arrs[0] );
         for(int i  = 1; i < arrs.length  ; i++ ){
-            System.out.print( "-" );
-            System.out.print( arrs[i] );
-
+//            System.out.print( "-" );
+//            System.out.print( arrs[i] );
             if(arrs[i] < arrs[i-1]){
-
-                System.out.println("fail");
-                return ;
+//                System.out.println("fail");
+                return false;
             }
         }
-        System.out.println();
-        System.out.println("success");
+//        System.out.println();
+//        System.out.println("success");
+        return true;
     }
 
     /***********归并排序*************************************************/

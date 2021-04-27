@@ -111,22 +111,31 @@ public class TreeNode {
         dg(node, 2);
     }
 
-    public static void dg(TreeNode node,int type){
+    static StringBuilder sb = null;
+
+    public static String dg(TreeNode node,int type){
+        if(sb==null){
+            sb = new StringBuilder("");
+        }
         if(node == null){
-            return ;
+            return sb.toString();
         }
         if(type==0){
             System.out.print(node.val + "-");
+            sb.append(node.val + "-");
         }
 
         dg(node.left,type);
         if(type==1){
             System.out.print(node.val + "-");
+            sb.append(node.val + "-");
         }
         dg(node.right,type);
         if(type==2){
             System.out.print(node.val + "-");
+            sb.append(node.val + "-");
         }
+        return sb.toString();
     }
 
   public static TreeNode getTree(){
