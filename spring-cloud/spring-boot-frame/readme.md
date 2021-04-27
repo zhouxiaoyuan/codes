@@ -1,4 +1,13 @@
 
+> 组件: 
+```
+fastDFS 文件上传管理
+springboot  
+mybitis-plus  orm框架
+nginx  反向代理，负载均衡
+```
+
+
 1. fastDFS 按照文档配置即可
 nginx 配置
 location ~ /group([0-9])/M00 {
