@@ -4,7 +4,7 @@
 fastDFS 文件管理
 springboot  
 mybitis-plus  orm框架
-nginx  反向代理，负载均衡
+nginx  反向代理，负载均衡，高可用
 ```
 
 
