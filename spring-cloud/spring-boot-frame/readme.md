@@ -1,7 +1,7 @@
 
 > 组件: 
 ```
-fastDFS 文件上传管理
+fastDFS 文件管理
 springboot  
 mybitis-plus  orm框架
 nginx  反向代理，负载均衡
