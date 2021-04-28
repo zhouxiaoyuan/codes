@@ -22,6 +22,8 @@ systemctl enable fdfs_trackerd
 systemctl enable fdfs_storaged
 systemctl enable nginx
 
+/etc/rc.d/init.d/
+
 4. 文件
 查看 使用nginx
 http://172.16.17.53/equipment/down?group=group1&filePath=M00/00/00/rBARNWCGbzGAesSVAAFW-2DQsPw610.jpg&fileName=xxx.jpg
