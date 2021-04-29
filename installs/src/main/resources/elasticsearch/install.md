@@ -32,5 +32,19 @@ luence
 buffer  refresh
 segment   -> 才能查到
 
+倒排表 posting list ->索引文件 数据行 ,压缩: 提升查询速度，降低空间占用；存储差值，将int压缩到bit，占用int的1/32
+ FOR 稠密数据，波动小  减法
+ RBM 稀疏     除法，int最大2^32
+词项字典 term dictionary   -> FST 字典表
+词项索引 term index
+倒排索引 - 分词 - 
+
+常规索引:
+1,索引会失效
+2.大数据会使树深度增加，增加I/O次数，影响效率
+
+
+
+
 
 

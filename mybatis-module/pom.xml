@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-cloud-eureka-server2</module>
+        <module>spring-functions</module>
     </modules>
 
     <dependencies>
