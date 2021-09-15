@@ -34,6 +34,15 @@ public class ListNode {
 
     }
 
+    public static void print(ListNode node ){
+        ListNode head = node;
+        while(head!=null){
+            System.out.print(head.val+"->");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
     public static ListNode getListNode(){
         node = new ListNode(0);
         Random random = new Random();

@@ -113,7 +113,7 @@ public class ArrayFactory {
     /*
     交换数组下标对应的值
      */
-    public void swap(int[] arrs, int start , int end){
+    public static void swap(int[] arrs, int start , int end){
         if( arrs == null || start == end || start >= arrs.length || end >= arrs.length ){
             return ;
         }
