@@ -30,11 +30,14 @@ public class Code01_KMP {
 		if (str2.length == 1) {
 			return new int[] { -1 };
 		}
+
 		int[] next = new int[str2.length];
 		next[0] = -1;
 		next[1] = 0;
+
 		int i = 2; // 目前在哪个位置上求next数组的值
 		int cn = 0; // 当前是哪个位置的值再和i-1位置的字符比较
+
 		while (i < next.length) {
 			if (str2[i - 1] == str2[cn]) { // 配成功的时候
 				next[i++] = ++cn;

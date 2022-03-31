@@ -19,6 +19,7 @@ public class Code01_Manacher {
 			// R第一个违规的位置，i>= R
 			// i位置扩出来的答案，i位置扩的区域，至少是多大。
 			pArr[i] = R > i ? Math.min(pArr[2 * C - i], R - i) : 1;
+
 			while (i + pArr[i] < str.length && i - pArr[i] > -1) {
 				if (str[i + pArr[i]] == str[i - pArr[i]])
 					pArr[i]++;
