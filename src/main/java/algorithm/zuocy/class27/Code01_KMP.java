@@ -38,7 +38,7 @@ public class Code01_KMP {
 		while (i < next.length) {
 			if (str2[i - 1] == str2[cn]) { // 配成功的时候
 				next[i++] = ++cn;
-			} else if (cn > 0) { //调到可能对的地方
+			} else if (cn > 0) { //调到可能对的地方 ， 自己走的路，将来可以给自己参考
 				cn = next[cn];
 			} else {
 				next[i++] = 0;
