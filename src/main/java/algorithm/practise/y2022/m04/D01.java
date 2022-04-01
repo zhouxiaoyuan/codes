@@ -29,7 +29,7 @@ public class D01 {
             }else{
                 y = next[y];
             }*/
-            else if( next[y] > 0  ){
+            else if( next[y] > 0  ){  //此处根据next数据，跟下面的获取next数组相似
                 y = next[y];
             }else{
                 x++;
