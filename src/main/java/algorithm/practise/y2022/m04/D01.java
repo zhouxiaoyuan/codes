@@ -1,5 +1,8 @@
 package algorithm.practise.y2022.m04;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+
 public class D01 {
 
     public static void main(String[] args) {
@@ -7,6 +10,15 @@ public class D01 {
         String str1 = "safasdfdsafsd1abababc";
         String str2 = "ababc";
         System.out.println(indexOf(str1,str2));;
+
+        String s1 = "王";
+        try {
+            byte[] bytes = s1.getBytes("gbk");
+
+            System.out.println(bytes);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     public static int indexOf(String str1 , String str2){
